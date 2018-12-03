@@ -56,6 +56,7 @@ int		checker(int i, const char *restrict format, va_list args)
 		string = ft_itoa_base(va_arg(args, unsigned int), 16);
 		ft_putstr(string);
 		counter += ft_strlen(string);
+		free(string);
 	}
 	if (format[i] == ' ')
 		return (counter);
@@ -100,12 +101,14 @@ int		checker_id_or_u(char ch, va_list args)
 		string = ft_itoa_base(va_arg(args, int), 10);
 		ft_putstr(string);
 		counter = ft_strlen(string);
+		free(string);
 	}
 	if (ch == 'u')
 	{
 		string = ft_itoa_base(va_arg(args, unsigned int), 10);
 		ft_putstr(string);
 		counter = ft_strlen(string);
+		free(string);
 	}
 	return (counter);
 }
@@ -123,12 +126,14 @@ int		checker_p_or_o(char ch, va_list args)
 		ft_putstr("0x");
 		ft_putstr(string);
 		counter = ft_strlen(string) + 2;
+		free(string);
 	}
 	if (ch == 'o')
 	{
 		string = ft_itoa_base(va_arg(args, unsigned int), 8);
 		ft_putstr(string);
 		counter = ft_strlen(string);
+		free(string);
 	}
 	return (counter);
 }
