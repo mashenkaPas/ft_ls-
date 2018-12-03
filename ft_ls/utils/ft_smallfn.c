@@ -43,21 +43,22 @@ int		ft_str_find(char *s1, char *s2)
 	return (0);
 }
 
-char	*ft_strcat(char *s1, char *s2)
+char *ft_strcat(char *dest, char *src)
 {
-	int		i;
-	int		j;
-	char	*res;
+	int i;
+	int j;
 
 	i = 0;
+	while (dest[i] != '\0')
+		i++;
 	j = 0;
-	res = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	while (s1[i])
-		(res[i] = s1[i]) && i++;
-	while (s2[j])
-		res[i++] = s2[j++];
-	res[i] = '\0';
-	return (res);
+	while (src[j] != '\0')
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	dest[i + j] = '\0';
+	return (dest);
 }
 
 int		ft_strcmp(char *s1, char *s2)
