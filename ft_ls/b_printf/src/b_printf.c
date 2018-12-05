@@ -37,6 +37,7 @@ int		b_printf(const char *restrict format, ...)
 		if (format[i] != '\0')
 			i++;
 	}
+	va_end(args);
 	return (count);
 }
 
